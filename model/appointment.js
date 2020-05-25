@@ -8,7 +8,9 @@ const Appointment = db.define('appointment', {
         autoIncrement: true
     },
     date_created: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.NOW
     },
     employee_created: {
         type: Sequelize.INTEGER
@@ -28,6 +30,9 @@ const Appointment = db.define('appointment', {
     end_time: {
         type: Sequelize.DATE
     },
+    price_expected: {
+        type: Sequelize.DECIMAL
+    },
     price_full: {
         type: Sequelize.DECIMAL
     },
@@ -40,7 +45,7 @@ const Appointment = db.define('appointment', {
     canceled: {
         type: Sequelize.TINYINT
     },
-    cancel_reason: {
+    cancellation_reason: {
         type: Sequelize.STRING
     },
     shop_id: {
